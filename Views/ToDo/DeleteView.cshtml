@@ -1,0 +1,37 @@
+﻿@model ToDo
+
+@{
+}
+
+<form method="post" asp-controller="ToDo" asp-action="Delete">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add Todo</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" disabled/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Date"></label>
+            <input asp-for=Date type="date" class="form-control" disabled/>
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+        <div>
+             <input hidden asp-for="Id" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to List
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
